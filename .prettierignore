@@ -1,0 +1,7 @@
+# Ignore everything
+/*
+
+# Except app and related folders
+!/src
+!/scripts
+!/docs
