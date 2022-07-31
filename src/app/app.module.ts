@@ -4,9 +4,31 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
+import { FooterComponent } from './shared/components/footer/footer.component';
+import { HeaderComponent } from './shared/components/header/header.component';
+import { MenuPrivateComponent } from './shared/components/header/menu-private/menu-private.component';
+import { MenuPublicComponent } from './shared/components/header/menu-public/menu-public.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { GalleryComponent } from './gallery/gallery.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
-    declarations: [AppComponent],
+    declarations: [
+        AppComponent,
+        LoginComponent,
+        HomeComponent,
+        AboutComponent,
+        FooterComponent,
+        HeaderComponent,
+        MenuPrivateComponent,
+        MenuPublicComponent,
+        DashboardComponent,
+        GalleryComponent,
+        ProfileComponent,
+    ],
     imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
     providers: [],
     bootstrap: [AppComponent],
