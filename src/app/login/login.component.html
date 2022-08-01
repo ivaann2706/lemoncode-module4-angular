@@ -1,14 +1,16 @@
 <mat-card>
     <h1 color="primary">Angular App</h1>
-    <form [formGroup]="loginForm">
+    <form [formGroup]="loginForm" #form="ngForm">
         <mat-form-field>
             <mat-label>Username</mat-label>
-            <input matInput formControlName="username" />
+            <input matInput [formControl]="username" />
+            <mat-error *ngIf="form.submitted && username.invalid && username.errors?.['required']">Field required.</mat-error>
         </mat-form-field>
         <mat-form-field>
             <mat-label>Password</mat-label>
-            <input matInput formControlName="password" />
+            <input matInput [formControl]="password" />
+            <mat-error *ngIf="form.submitted && password.invalid && password.errors?.['required']">Field required.</mat-error>
         </mat-form-field>
-        <button mat-raised-button color="primary" (click)="login()">Log in</button>
+        <button mat-raised-button color="primary" (click)="login()" [disabled]="form.submitted && loginForm.invalid">Log in</button>
     </form>
 </mat-card>
