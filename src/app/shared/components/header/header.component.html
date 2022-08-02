@@ -2,5 +2,5 @@
     <h1>Angular App</h1>
     <app-menu-public *ngIf="!isLogged"></app-menu-public>
     <app-menu-private *ngIf="isLogged" class="menu-private"></app-menu-private>
-    <div *ngIf="isLogged">Hola Juan, <a mat-button routerLink="home">Logout</a></div>
+    <div *ngIf="isLogged">Hola {{ username }}, <button mat-button (click)="logout()">Logout</button></div>
 </mat-toolbar>

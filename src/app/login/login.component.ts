@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
+
+import { AuthenticationService } from '../core/services/authentication/authentication.service';
 
 @Component({
     selector: 'app-login',
@@ -10,7 +13,12 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class LoginComponent {
     loginForm!: FormGroup;
 
-    constructor(private formBuilder: FormBuilder, private snackBar: MatSnackBar) {
+    constructor(
+        private router: Router,
+        private formBuilder: FormBuilder,
+        private snackBar: MatSnackBar,
+        private auth: AuthenticationService,
+    ) {
         this.initForm();
     }
 
@@ -30,7 +38,11 @@ export class LoginComponent {
     }
 
     login() {
-        //TODO create Auth service to check if the username and password is valid
-        this.snackBar.open('The username or password is incorrect', 'Close', { duration: 5000 });
+        const { username, password } = this.loginForm.value;
+        if (this.auth.login(username, password)) {
+            this.router.navigate(['/dashboard']);
+        } else {
+            this.snackBar.open('The username or password is incorrect', 'Close', { duration: 5000 });
+        }
     }
 }
