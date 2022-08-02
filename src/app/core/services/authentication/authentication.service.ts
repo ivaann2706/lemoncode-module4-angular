@@ -21,6 +21,11 @@ export class AuthenticationService {
         return this.user$;
     }
 
+    get isLogged(): boolean {
+        const user = this.userSubject.value;
+        return !!user.username && !!user.password;
+    }
+
     login(username: string, password: string): boolean {
         if (username === 'admin' && password === 'admin') {
             const user = { username, password };
