@@ -10,6 +10,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -48,6 +50,7 @@ import { ProfileComponent } from './profile/profile.component';
         MatInputModule,
         MatCardModule,
         MatSnackBarModule,
+        FontAwesomeModule,
     ],
     providers: [],
     bootstrap: [AppComponent],
