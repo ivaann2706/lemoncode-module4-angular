@@ -13,6 +13,10 @@ export class GalleryComponent implements OnDestroy {
         '../../assets/images/gorilla.jpg',
         '../../assets/images/owl.jpg',
         '../../assets/images/squirrel.jpg',
+        '../../assets/images/dog.jpg',
+        '../../assets/images/parrot.jpg',
+        '../../assets/images/tiger.jpg',
+        '../../assets/images/elephant.jpg',
     ];
 
     selectedImage: string;
