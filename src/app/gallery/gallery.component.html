@@ -31,7 +31,7 @@
     <button mat-icon-button (click)="previous()">
         <mat-icon>chevron_left</mat-icon>
     </button>
-    <img [src]="selectedImage" [width]="imageWidth" />
+    <img [appRotate]="10" [src]="selectedImage" [width]="imageWidth" />
     <button mat-icon-button (click)="next()">
         <mat-icon>chevron_right</mat-icon>
     </button>

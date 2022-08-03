@@ -25,6 +25,7 @@ import { MenuPublicComponent } from './shared/components/header/menu-public/menu
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { ProfileComponent } from './profile/profile.component';
+import { RotateDirective } from './shared/directives/rotate.directive';
 
 @NgModule({
     declarations: [
@@ -39,6 +40,7 @@ import { ProfileComponent } from './profile/profile.component';
         DashboardComponent,
         GalleryComponent,
         ProfileComponent,
+        RotateDirective,
     ],
     imports: [
         BrowserModule,
