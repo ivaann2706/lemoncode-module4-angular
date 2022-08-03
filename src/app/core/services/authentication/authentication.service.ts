@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, distinctUntilChanged, Observable, shareReplay } from 'rxjs';
+import { BehaviorSubject, delay, distinctUntilChanged, Observable, of, shareReplay } from 'rxjs';
 
 import { User } from '../../models/user.model';
 
@@ -26,14 +26,14 @@ export class AuthenticationService {
         return !!user.username && !!user.password;
     }
 
-    login(username: string, password: string): boolean {
+    login(username: string, password: string): Observable<boolean> {
         if (username === 'admin' && password === 'admin') {
             const user = { username, password };
             localStorage.setItem(USER_KEY, JSON.stringify(user));
             this.userSubject.next(user);
-            return true;
+            return of(true).pipe(delay(2000));
         }
-        return false;
+        return of(false).pipe(delay(2000));
     }
 
     logout(): void {

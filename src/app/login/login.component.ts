@@ -13,6 +13,8 @@ import { AuthenticationService } from '../core/services/authentication/authentic
 export class LoginComponent {
     loginForm!: FormGroup;
 
+    loading: boolean = false;
+
     constructor(
         private router: Router,
         private formBuilder: FormBuilder,
@@ -30,19 +32,26 @@ export class LoginComponent {
         return this.loginForm.get('password') as FormControl;
     }
 
+    login(): void {
+        const { username, password } = this.loginForm.value;
+        if (!username || !password) {
+            return;
+        }
+        this.loading = true;
+        this.auth.login(username, password).subscribe((response) => {
+            this.loading = false;
+            if (response) {
+                this.router.navigate(['/dashboard']);
+            } else {
+                this.snackBar.open('The username or password is incorrect', 'Close', { duration: 5000 });
+            }
+        });
+    }
+
     private initForm(): void {
         this.loginForm = this.formBuilder.group({
             username: ['', Validators.required],
             password: ['', Validators.required],
         });
-    }
-
-    login() {
-        const { username, password } = this.loginForm.value;
-        if (this.auth.login(username, password)) {
-            this.router.navigate(['/dashboard']);
-        } else {
-            this.snackBar.open('The username or password is incorrect', 'Close', { duration: 5000 });
-        }
     }
 }

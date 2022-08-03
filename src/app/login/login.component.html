@@ -11,6 +11,8 @@
             <input matInput [formControl]="password" />
             <mat-error *ngIf="form.submitted && password.invalid && password.errors?.['required']">Field required.</mat-error>
         </mat-form-field>
-        <button mat-raised-button color="primary" (click)="login()" [disabled]="form.submitted && loginForm.invalid">Log in</button>
+        <button mat-raised-button color="primary" (click)="login()" [disabled]="form.submitted && (loginForm.invalid || loading)">
+            Log in<mat-spinner *ngIf="loading" diameter="15"></mat-spinner>
+        </button>
     </form>
 </mat-card>

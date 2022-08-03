@@ -10,6 +10,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatIconModule } from '@angular/material/icon';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
@@ -54,6 +55,7 @@ import { RotateDirective } from './shared/directives/rotate.directive';
         MatCardModule,
         MatSnackBarModule,
         MatIconModule,
+        MatProgressSpinnerModule,
         FontAwesomeModule,
     ],
     providers: [],
