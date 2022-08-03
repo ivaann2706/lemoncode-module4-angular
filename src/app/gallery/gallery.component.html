@@ -1,1 +1,38 @@
-<p>gallery works!</p>
+<div>
+    <button mat-icon-button [disabled]="isPlaying" (click)="play()">
+        <mat-icon>play_circle</mat-icon>
+    </button>
+    <button mat-icon-button [disabled]="!isPlaying" (click)="stop()">
+        <mat-icon>pause_circle</mat-icon>
+    </button>
+</div>
+
+<div class="carousel__image">
+    <img
+        [ngClass]="{ 'carousel__image--selected': i === index }"
+        [src]="image"
+        *ngFor="let image of images; index as i"
+        height="60"
+        width="80"
+        (click)="selectImage(i)"
+    />
+</div>
+
+<div class="zoom">
+    <button mat-icon-button (click)="imageWidth = imageWidth - 50">
+        <mat-icon>zoom_out</mat-icon>
+    </button>
+    <button mat-icon-button (click)="imageWidth = imageWidth + 50">
+        <mat-icon>zoom_in</mat-icon>
+    </button>
+</div>
+
+<div class="image--expanded">
+    <button mat-icon-button (click)="previous()">
+        <mat-icon>chevron_left</mat-icon>
+    </button>
+    <img [src]="selectedImage" [width]="imageWidth" />
+    <button mat-icon-button (click)="next()">
+        <mat-icon>chevron_right</mat-icon>
+    </button>
+</div>

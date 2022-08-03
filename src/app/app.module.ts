@@ -9,6 +9,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatIconModule } from '@angular/material/icon';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
@@ -50,6 +51,7 @@ import { ProfileComponent } from './profile/profile.component';
         MatInputModule,
         MatCardModule,
         MatSnackBarModule,
+        MatIconModule,
         FontAwesomeModule,
     ],
     providers: [],
