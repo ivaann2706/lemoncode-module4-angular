@@ -43,7 +43,7 @@ export class LoginComponent {
             if (response) {
                 this.router.navigate(['/dashboard']);
             } else {
-                this.snackBar.open('The username or password is incorrect', 'Close', { duration: 5000 });
+                this.snackBar.open('The username or password is incorrect\nTry with: admin/admin', 'Close', { duration: 5000 });
             }
         });
     }
